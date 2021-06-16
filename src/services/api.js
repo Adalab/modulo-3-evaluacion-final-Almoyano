@@ -10,6 +10,7 @@ const getApiData = () => {
           image: character.image,
           name: character.name,
           specie: character.species,
+          id: character.id,
         };
       });
       return cleanData;
