@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react";
-import getApiData from "../services/api";
 import CharacterList from "./CharacterList";
+import Filter from "./Filter";
+import getApiData from "../services/api";
 import ls from "../services/local-storage";
 
 const App = () => {
-  const charactersLocalStorageData = ls.get("characters", []);
-  console.log(charactersLocalStorageData);
-  const [characters, setCharacters] = useState(charactersLocalStorageData);
+  const [characters, setCharacters] = useState(ls.get("characters", []));
+  const [filterName, setFilterName] = useState(ls.get("filterName", ""));
 
   useEffect(() => {
-    console.log(characters.length);
     if (characters.length === 0)
       getApiData().then((charactersData) => {
         setCharacters(charactersData);
@@ -17,14 +16,24 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    console.log("Guardando en local storage", characters);
     ls.set("characters", characters);
   }, [characters]);
+
+  const handleFilter = (data) => {
+    if (data.key === "name") {
+      setFilterName(data.value);
+    }
+  };
+
+  const filteredCharacters = characters.filter((character) => {
+    return character.name.toLowerCase().includes(filterName);
+  });
 
   return (
     <>
       <h1 className="title">Listado de personajes</h1>
-      <CharacterList characters={characters} />
+      <Filter handleFilter={handleFilter} />
+      <CharacterList characters={filteredCharacters} />
     </>
   );
 };

@@ -5,7 +5,6 @@ const getApiData = () => {
     .then((response) => response.json())
     .then((data) => {
       const cleanData = data.results.map((character) => {
-        console.log(character.name);
         return {
           image: character.image,
           name: character.name,
