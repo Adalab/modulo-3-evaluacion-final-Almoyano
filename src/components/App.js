@@ -19,6 +19,10 @@ const App = () => {
     ls.set("characters", characters);
   }, [characters]);
 
+  useEffect(() => {
+    ls.set("filterName", filterName);
+  }, [filterName]);
+
   const handleFilter = (data) => {
     if (data.key === "name") {
       setFilterName(data.value);
@@ -32,7 +36,7 @@ const App = () => {
   return (
     <>
       <h1 className="title">Listado de personajes</h1>
-      <Filter handleFilter={handleFilter} />
+      <Filter filterName={filterName} handleFilter={handleFilter} />
       <CharacterList characters={filteredCharacters} />
     </>
   );
