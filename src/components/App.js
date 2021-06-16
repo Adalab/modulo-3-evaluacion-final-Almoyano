@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import getApiData from "../services/api";
+import CharacterList from "./CharacterList";
 
 const App = () => {
   const [characters, setCharacters] = useState([]);
@@ -13,6 +14,7 @@ const App = () => {
   return (
     <>
       <h1 className="title">Listado de personajes</h1>
+      <CharacterList characters={characters} />
     </>
   );
 };

@@ -7,7 +7,7 @@ const getApiData = () => {
       const cleanData = data.results.map((character) => {
         console.log(character.name);
         return {
-          photo: character.image,
+          image: character.image,
           name: character.name,
           specie: character.species,
         };
