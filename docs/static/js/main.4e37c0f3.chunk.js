@@ -1,2 +1,0 @@
-(this.webpackJsonptemplate=this.webpackJsonptemplate||[]).push([[0],{9:function(e,t,n){"use strict";n.r(t);var s=n(1),c=n.n(s),r=n(3),a=n.n(r),i=n(0),o=function(){return Object(i.jsx)(i.Fragment,{children:Object(i.jsx)("h1",{className:"title",children:"Listado de personajes"})})};a.a.render(Object(i.jsx)(c.a.StrictMode,{children:Object(i.jsx)(o,{})}),document.getElementById("root"))}},[[9,1,2]]]);
-//# sourceMappingURL=main.4e37c0f3.chunk.js.map
