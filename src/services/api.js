@@ -8,8 +8,11 @@ const getApiData = () => {
         return {
           image: character.image,
           name: character.name,
-          specie: character.species,
           id: character.id,
+          status: character.status,
+          specie: character.species,
+          origin: character.origin.name,
+          episode: character.episode.length,
         };
       });
       return cleanData;

@@ -2,13 +2,19 @@ import React from "react";
 import CharacterCard from "./CharacterCard";
 
 const CharacterList = (props) => {
-  const characterElements = props.characters.map((character) => {
-    return (
-      <li key={character.id}>
-        <CharacterCard character={character} />
-      </li>
-    );
-  });
+  let characterElements = "";
+
+  if (props.characters.length !== 0) {
+    characterElements = props.characters.map((character) => {
+      return (
+        <li key={character.id}>
+          <CharacterCard character={character} />
+        </li>
+      );
+    });
+  } else {
+    characterElements = "No se encuentra el personaje";
+  }
 
   return (
     <section>
