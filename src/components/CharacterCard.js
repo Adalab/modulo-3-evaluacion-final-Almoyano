@@ -13,6 +13,7 @@ const CharacterCard = (props) => {
         />
         <h2 className="card__title">{props.character.name}</h2>
         <h3 className="card__description">{props.character.specie}</h3>
+        <h4>{props.character.type}</h4>
       </article>
     </Link>
   );
